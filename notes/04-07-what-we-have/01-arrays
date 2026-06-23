@@ -8,7 +8,7 @@ process-indexed() {
 	echo "${arguments[*]}"
 }
 
-process-associative() {
+process-associative() {  # it deduplicates data 
 	local arguments=("$@")
 	echo "found: ${#arguments[@]} total arguments"
 
@@ -26,7 +26,7 @@ process-commands() {
 	echo "found: ${#arguments[@]} total arguments"
 
 	local item
-	for item; do
+	for item; do  # here if you dont use 'in' in for loop, the for loop will loop over the arguments -> $1 -> $2 -> $3 till nothing
 		echo "running command: $item"
 		"$item" # hmmm
 	done
@@ -34,7 +34,7 @@ process-commands() {
 
 cmd=$1
 echo "script called with arguments: $*"
-shift
+shift  # its an command to move arguments over by one on left side
 echo "script shifted to arguments: $*"
 
 case "$cmd" in
