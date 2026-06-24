@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+#  or usew bash -x to turn on debug mode in cli
+
 set -x  # debugging flag is on 
   # if you dont put set +x on bottom it will debug whole file 
 
