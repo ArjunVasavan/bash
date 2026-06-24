@@ -99,4 +99,3 @@ minimum_cost 6 5 7 9 2 2
 # Same as: minimum_cost(arr, 6) in C
 
 # Output: 23
-
