@@ -8,3 +8,9 @@ goodbye() {
   echo "Goodbye $1"
 }
 
+
+if ! ( return 2> /dev/null); then
+  # we are being called directly 
+  greet arjun
+  goodbye vasavan
+fi
