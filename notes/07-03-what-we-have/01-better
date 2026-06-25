@@ -2,14 +2,15 @@
 
 # show finger command
 
-declare -A shells
+declare -A shells  # created an associative array named shells 
 while IFS=: read -r name pass uid gid gecos home shell; do
+  echo "found $name"
 	# skip comments
-	if [[ $name == '#'* ]]; then
+	if [[ $name == '#'* ]]; then  # checking if name starts with a pound '#' sign
 		continue
 	fi
 
-	shells[$name]=$shell
-done < /etc/passwd
+	shells[$name]=$shell  # we are storing on associative array as key, value 
+done < /etc/passwd  # we are passing input through /etc/passwd 
 
 echo "dave has the shell: ${shells[nobody]}"
