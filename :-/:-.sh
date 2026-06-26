@@ -6,24 +6,23 @@
 # syntax:
 # ${variable:-default_value}
 
-name="Arjun"
-echo "${name:-Guest}"
+user="Arjun"
+
+echo "${user:-Guest}"
 # output: Arjun
-# variable is set, so default value is ignored
 
-unset name
-echo "${name:-Guest}"
+unset user
+echo "${user:-Guest}"
 # output: Guest
-# variable is unset, so default value is used
 
-name=""
-echo "${name:-Guest}"
+user=""
+echo "${user:-Guest}"
 # output: Guest
-# variable is empty, so default value is used
 
-name=${1:-Arjun}
+user="Arjun"
+name=${1:-$user}
 # if first command-line argument ($1) is given, use it
-# otherwise use "Arjun"
+# otherwise use the value stored in $user
 
 echo "$name"
 
@@ -35,5 +34,6 @@ echo "$name"
 # output: Abhimanyu
 
 # IMPORTANT:
+# the default value can be another variable
 # ':-' only returns the default value
-# it does NOT change the original variable
+# it does NOT modify the original variable
